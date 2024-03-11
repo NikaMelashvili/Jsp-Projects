@@ -5,8 +5,23 @@
   <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Hello World!" %></h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<table>
+  <thead>
+    <td>ID</td>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Action</td>
+    <td>Action</td>
+  </thead>
+  <tbody>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
 </body>
 </html>
