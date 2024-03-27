@@ -8,10 +8,9 @@
 <h1 style="margin: auto">Store Images</h1>
 
 <div>
-    <form action="add-image" method="post" enctype="multipart/form-data">
+    <form action="/add-image" method="post" enctype="multipart/form-data">
         <label>Select an image</label>
-        <!-- Add the name attribute to the input field -->
-        <input type="file" name="imageFile">
+        <input type="file" name="image">
         <input type="submit" value="submit">
     </form>
 </div>
