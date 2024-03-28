@@ -3,9 +3,10 @@
 <html>
 <head>
   <title>Image Database</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<a href="/addRow.jsp">Add profile</a>
+<a href="${pageContext.request.contextPath}/addRow.jsp">Add profile</a>
 <br>
 <table>
   <thead>
@@ -16,11 +17,11 @@
   </tr>
   </thead>
   <tbody>
-  <c:forEach var="info" items="${someInfoList}">
+  <c:forEach var="db" items="${someInfoList}">
     <tr>
-      <td>${info.id}</td>
-      <td>${info.firstName}</td>
-      <td><img src="displayImage?id=${info.id}" alt="Profile Picture"></td>
+      <td>${db.id}</td>
+      <td>${db.firstName}</td>
+      <td><img src="displayImage?id=${db.id}" alt="Profile Picture"></td>
     </tr>
   </c:forEach>
   </tbody>
