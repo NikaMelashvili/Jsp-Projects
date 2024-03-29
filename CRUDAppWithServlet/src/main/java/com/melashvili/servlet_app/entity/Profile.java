@@ -19,6 +19,11 @@ public class Profile {
         this.profilePicture = profilePicture;
     }
 
+    public Profile(String firstName, byte[] profilePicture) {
+        this.firstName = firstName;
+        this.profilePicture = profilePicture;
+    }
+
     public int getId() {
         return id;
     }

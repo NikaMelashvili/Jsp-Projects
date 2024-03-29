@@ -17,5 +17,8 @@
   <input type="file" name="image">
   <input type="submit" value="Upload Image">
 </form>
+<br>
+<br>
+<a href="./index.jsp">Back home</a>
 </body>
 </html>
