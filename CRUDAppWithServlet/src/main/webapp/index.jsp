@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<a href="${pageContext.request.contextPath}/addRow.jsp">Add profile</a>
+<a href="${pageContext.request.contextPath}/crud/addRow.jsp">Add profile</a>
 <br>
 <table>
   <thead>
