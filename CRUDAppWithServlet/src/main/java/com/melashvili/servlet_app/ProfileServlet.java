@@ -79,7 +79,7 @@ public class ProfileServlet extends HttpServlet {
     private void showNewForm(HttpServletRequest request,
                              HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("addRow.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("user-form.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -106,7 +106,7 @@ public class ProfileServlet extends HttpServlet {
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Profile profile = profileDAO.getProfileById(id);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("edit.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("user-form.jsp");
         request.setAttribute("profile", profile);
         dispatcher.forward(request, response);
     }
@@ -128,7 +128,7 @@ public class ProfileServlet extends HttpServlet {
             throws SQLException, ServletException, IOException {
         List<Profile> profiles = profileDAO.getAllProfiles();
         request.setAttribute("profiles", profiles);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("user-list.jsp");
         dispatcher.forward(request, response);
     }
 }
