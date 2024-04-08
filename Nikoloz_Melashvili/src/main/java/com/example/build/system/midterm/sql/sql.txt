@@ -1,0 +1,10 @@
+create database nikamelashvili;
+
+use nikamelashvili;
+
+create table products(
+    productId int primary key auto_increment,
+    name varchar(255),
+    price int,
+    quantity int
+);

@@ -127,7 +127,7 @@ public class ProfileServlet extends HttpServlet {
                               HttpServletResponse response)
             throws SQLException, ServletException, IOException {
         List<Profile> profiles = profileDAO.getAllProfiles();
-        request.setAttribute("profiles", profiles);
+        request.setAttribute("listUser", profiles);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user-list.jsp");
         dispatcher.forward(request, response);
     }
