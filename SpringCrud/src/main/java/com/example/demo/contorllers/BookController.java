@@ -20,6 +20,16 @@ public class BookController {
         return bookService.getBook(id);
     }
 
+    @GetMapping("/get/error")
+    public String error(){
+        int a = 5;
+        if(a != 5){
+            return "not five";
+        } else {
+            throw new RuntimeException("Error For Tracing");
+        }
+    }
+
     @PostMapping("/add")
     public Book addBook(@RequestBody Book book){
         return bookService.addBook(book);
