@@ -2,6 +2,9 @@ package com.example.demo.contorllers;
 
 import com.example.demo.models.Book;
 import com.example.demo.services.BookService;
+import com.example.demo.services.impl.BookServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/book")
 public class BookController {
     private final BookService bookService;
+
+    public final Logger LOGGER = LoggerFactory.getLogger(BookController.class);
 
     @Autowired
     public BookController(BookService bookService) {
@@ -22,10 +27,12 @@ public class BookController {
 
     @GetMapping("/get/error")
     public String error(){
+        LOGGER.info("WE LOGGED THE EXCEPTION");
         int a = 5;
         if(a != 5){
             return "not five";
         } else {
+
             throw new RuntimeException("Error For Tracing");
         }
     }

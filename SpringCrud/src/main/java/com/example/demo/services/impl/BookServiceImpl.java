@@ -2,10 +2,15 @@ package com.example.demo.services.impl;
 
 import com.example.demo.models.Book;
 import com.example.demo.services.BookService;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class BookServiceImpl implements BookService {
+
     @Override
     public Book getBook(Long id) {
         Book book = new Book();
