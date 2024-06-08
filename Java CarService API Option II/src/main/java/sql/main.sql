@@ -3,32 +3,38 @@ create database car_service;
 use car_service;
 
 create table car(
-                    car_id bigint primary key auto_increment,
-                    make varchar(255),
-                    model varchar(255),
-                    year int,
-                    licence_plate varchar(255),
-                    owner_id bigint,
-                    appointments bigint,
-                    foreign key (owner_id) references customer(customer_id),
-                    foreign key (appointments) references appointment(appointment_id)
+    car_id bigint primary key auto_increment,
+    make varchar(255),
+    model varchar(255),
+    year int,
+    licence_plate varchar(255),
+    service_id bigint,
+    foreign key (service_id) references service(service_id)
 );
 
-create table customer(
-                         customer_id bigint primary key auto_increment,
-                         name varchar(255),
-                         email varchar(255),
-                         phone varchar(255),
-                         car_id bigint,
-                         appointment_id bigint,
-                         foreign key (car_id) references car(car_id),
-                         foreign key (appointment_id) references appointment(appointment_id)
+create table service(
+    service_id bigint primary key auto_increment,
+    service_name varchar(255),
+    service_description varchar(255),
+    price decimal
 );
 
-create table appointment(
-                            appointment_id bigint primary key auto_increment,
-                            car_id bigint,
-                            customer_id bigint,
-                            service_id varchar(255),
-                            appointment_time varchar(255)
+create table provided_services(
+    provided_service_id bigint primary key auto_increment,
+    car bigint,
+    service bigint,
+    create_date datetime,
+    last_modified_date datetime,
+    record_state int,
+    foreign key (car) references car(car_id),
+    foreign key (service) references service(service_id)
 );
+
+alter table car
+    add created_date datetime after licence_plate;
+
+alter table car
+    add last_modified_date datetime after created_date;
+
+alter table car
+    add record_state int after last_modified_date;

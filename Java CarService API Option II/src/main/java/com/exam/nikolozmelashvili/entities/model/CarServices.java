@@ -6,27 +6,26 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "")
-public class Service {
+@Table(name = "service")
+public class CarServices {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "service_id")
     private Long id;
 
-    @Column(nullable = false)
+    @Column(name = "service_name", nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "service_description", nullable = false)
     private String description;
 
-    @Column(nullable = false)
+    @Column(name = "price", nullable = false)
     private double price;
 
 }
