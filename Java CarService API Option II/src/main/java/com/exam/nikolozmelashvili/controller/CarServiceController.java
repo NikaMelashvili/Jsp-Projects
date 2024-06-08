@@ -1,6 +1,6 @@
 package com.exam.nikolozmelashvili.controller;
 
-import com.exam.nikolozmelashvili.entities.dto.CarServiceDTO;
+import com.exam.nikolozmelashvili.entities.dto.CarServicesDTO;
 import com.exam.nikolozmelashvili.services.CarServicesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +22,7 @@ public class CarServiceController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Void> saveCarService(@RequestBody CarServiceDTO carService){
+    public ResponseEntity<Void> saveCarService(@RequestBody CarServicesDTO carService){
         carServicesService.insertService(carService);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }

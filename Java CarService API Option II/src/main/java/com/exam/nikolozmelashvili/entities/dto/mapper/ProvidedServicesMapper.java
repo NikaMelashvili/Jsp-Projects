@@ -5,23 +5,15 @@ import com.exam.nikolozmelashvili.entities.model.ProvidedServices;
 
 public class ProvidedServicesMapper {
 
-    public static ProvidedServices dtoToEntity(ProvidedServices dto) {
-        ProvidedServices entity = new ProvidedServices();
+    public static ProvidedServicesDTO toProvidedServicesDTO(ProvidedServices providedServices) {
+        if (providedServices == null) return null;
 
-        entity.setCar(dto.getCar());
-        entity.setCarServices(dto.getCarServices());
-        entity.setPrice(dto.getPrice());
-
-        return entity;
+        return new ProvidedServicesDTO(providedServices.getId(), CarMapper.toCarDTO(providedServices.getCar()), CarServicesMapper.toCarServicesDTO(providedServices.getCarServices()), providedServices.getPrice());
     }
 
-    public static ProvidedServicesDTO entityToDto(ProvidedServices entity) {
-        ProvidedServicesDTO dto = new ProvidedServicesDTO();
+    public static ProvidedServices toProvidedServices(ProvidedServicesDTO providedServicesDTO) {
+        if (providedServicesDTO == null) return null;
 
-        dto.setCar(entity.getCar());
-        dto.setCarServices(entity.getCarServices());
-        dto.setPrice(entity.getPrice());
-
-        return dto;
+        return new ProvidedServices(providedServicesDTO.getId(), CarMapper.toCar(providedServicesDTO.getCar()), CarServicesMapper.toCarServices(providedServicesDTO.getCarServices()), providedServicesDTO.getPrice());
     }
 }

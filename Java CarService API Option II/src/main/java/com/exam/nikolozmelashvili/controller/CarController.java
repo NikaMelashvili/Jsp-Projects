@@ -23,7 +23,7 @@ public class CarController {
 
     @PostMapping("/add")
     public ResponseEntity<Void> addCar(@RequestBody CarDTO car) {
-        carService.insertCar(car);
+        carService.saveCar(car);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 

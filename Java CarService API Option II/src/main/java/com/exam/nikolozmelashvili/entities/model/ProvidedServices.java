@@ -17,11 +17,11 @@ public class ProvidedServices {
     @Column(name = "provided_service_id")
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "car")
     private Car car;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "service")
     private CarServices carServices;
 

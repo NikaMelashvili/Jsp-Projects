@@ -1,7 +1,7 @@
 package com.exam.nikolozmelashvili.services;
 
-import com.exam.nikolozmelashvili.entities.dto.CarServiceDTO;
-import com.exam.nikolozmelashvili.entities.dto.mapper.CarServiceMapper;
+import com.exam.nikolozmelashvili.entities.dto.CarServicesDTO;
+import com.exam.nikolozmelashvili.entities.dto.mapper.CarServicesMapper;
 import com.exam.nikolozmelashvili.entities.model.Car;
 import com.exam.nikolozmelashvili.entities.model.CarServices;
 import com.exam.nikolozmelashvili.entities.model.ProvidedServices;
@@ -11,7 +11,6 @@ import com.exam.nikolozmelashvili.repository.ProvidedServicesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -38,8 +37,8 @@ public class CarServicesService {
         this.providedServicesRepository = providedServicesRepository;
     }
 
-    public void insertService(CarServiceDTO service) {
-        CarServices carServiceEntity = CarServiceMapper.dtoToEntity(service);
+    public void insertService(CarServicesDTO service) {
+        CarServices carServiceEntity = CarServicesMapper.toCarServices(service);
         serviceRepository.save(carServiceEntity);
     }
 
@@ -66,6 +65,6 @@ public class CarServicesService {
     }
 
     public Double getFullServicePrice() {
-
+        return null;
     }
 }

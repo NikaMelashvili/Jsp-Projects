@@ -1,32 +1,22 @@
 package com.exam.nikolozmelashvili.entities.dto.mapper;
 
 import com.exam.nikolozmelashvili.entities.dto.CarDTO;
+import com.exam.nikolozmelashvili.entities.dto.CarServicesDTO;
 import com.exam.nikolozmelashvili.entities.model.Car;
 
 public class CarMapper {
 
-    public static Car dtoToEntity(CarDTO carDTO) {
-        Car car = new Car();
+    public static CarDTO toCarDTO(Car car) {
+        if (car == null) return null;
 
-        car.setMake(carDTO.getMake());
-        car.setModel(carDTO.getModel());
-        car.setYear(carDTO.getYear());
-        car.setLicensePlate(carDTO.getLicensePlate());
-        car.setService(carDTO.getService());
-
-        return car;
+        CarServicesDTO carServicesDTO = CarServicesMapper.toCarServicesDTO(car.getService());
+        return new CarDTO(car.getId(), car.getMake(), car.getModel(), car.getYear(), car.getLicensePlate(), carServicesDTO);
     }
 
-    public static CarDTO entityToDto(Car car) {
-        CarDTO carDTO = new CarDTO();
+    public static Car toCar(CarDTO carDTO) {
+        if (carDTO == null) return null;
 
-        carDTO.setMake(car.getMake());
-        carDTO.setModel(car.getModel());
-        carDTO.setYear(car.getYear());
-        carDTO.setLicensePlate(car.getLicensePlate());
-        carDTO.setService(car.getService());
-
-        return carDTO;
+        return new Car(carDTO.getId(), carDTO.getMake(), carDTO.getModel(), carDTO.getYear(), carDTO.getLicensePlate(), CarServicesMapper.toCarServices(carDTO.getService()));
     }
-
 }
+
