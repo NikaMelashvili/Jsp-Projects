@@ -32,12 +32,9 @@ public class Car {
     @Column(nullable = false)
     private String licensePlate;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    private Customer owner;
-
-    @OneToMany(mappedBy = "car")
-    private List<Appointment> appointments;
+    @Column()
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Service service;
 
 }
 

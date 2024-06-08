@@ -29,7 +29,4 @@ public class Service {
     @Column(nullable = false)
     private double price;
 
-    @ManyToMany(mappedBy = "services")
-    private List<Appointment> appointments;
-
 }
